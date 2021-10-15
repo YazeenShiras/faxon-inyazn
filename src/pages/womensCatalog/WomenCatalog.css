@@ -1,0 +1,72 @@
+.womenCatalog {
+  background-color: #faf9f8;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.womenCatalog > .display {
+  height: 85vh;
+  margin-top: 60px;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  color: #1c1f22;
+}
+
+.womenCatalog > .display > h1 {
+  margin-left: 50px;
+  margin-bottom: 20px;
+}
+
+.womenCatalog > .display > h3 {
+  margin-left: 50px;
+  margin-right: 100px;
+  margin-bottom: 30px;
+}
+
+.womenCatalog > .button {
+  margin-top: 20px;
+  height: 35px;
+  width: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #1c1f22;
+  margin-bottom: 50px;
+  color: #1c1f22;
+  text-decoration: none;
+}
+
+.womenCatalog > .titleOfProducts {
+  margin: 30px 0px;
+  text-align: center;
+}
+
+@media only screen and (max-width: 500px) {
+  .womenCatalog > .display {
+    height: 40vh;
+    width: 90%;
+    margin-top: 80px;
+  }
+  .womenCatalog > .display > h1 {
+    font-size: 20px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+  }
+  .womenCatalog > .display > h3 {
+    font-size: 12px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+  }
+  .womenCatalog > .button {
+    margin-bottom: 30px;
+  }
+  .womenCatalog > .titleOfProducts {
+    margin: 10px 0px;
+    text-align: center;
+  }
+}

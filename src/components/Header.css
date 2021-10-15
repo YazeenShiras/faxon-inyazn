@@ -1,0 +1,167 @@
+.header {
+  height: 60px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  color: #1c1f22;
+  background-color: #faf9f8;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+.headerContainer {
+  height: 60px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.header__left {
+  margin-left: 65px;
+}
+
+.header__left > .logoText {
+  text-decoration: none;
+  color: #1c1f22;
+}
+
+.header__right {
+  margin-right: 65px;
+  display: flex;
+}
+
+.linkTexts {
+  display: flex;
+  align-items: center;
+}
+
+.linkNav {
+  margin-right: 20px;
+  text-decoration: none;
+  color: #1c1f22;
+  font-weight: bold;
+}
+
+.linkNav:hover {
+  color: #1a4975;
+}
+
+.cart {
+  margin-left: 30px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.cart > h4 {
+  font-size: 22px;
+  color: #1c1f22;
+}
+
+.cart > h4:hover {
+  color: #1a4975;
+}
+
+.menuDiv {
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+  display: none;
+}
+
+.menu {
+  cursor: pointer;
+  font-size: 22px;
+}
+
+.menu > h4 {
+  color: #1c1f22;
+}
+
+.menu > h4:hover {
+  color: #1a4975;
+}
+
+.close {
+  cursor: pointer;
+  font-size: 22px;
+  display: none;
+}
+
+.close > h4 {
+  color: #1c1f22;
+}
+
+.close > h4:hover {
+  color: #1a4975;
+}
+
+.cart > .cart__count {
+  width: 15px;
+  height: 15px;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1c1f22;
+  color: #ffffff;
+  margin-left: 3px;
+  border-radius: 50%;
+}
+
+.menuItems {
+  height: 200px;
+  width: 100%;
+  display: none;
+}
+
+.menuItems > .links {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.menuItems .links .linkTo {
+  text-decoration: none;
+  color: #1c1f22;
+  font-weight: bold;
+  font-size: 13px;
+}
+.menuItems .links .linkTo:hover {
+  color: #1a4975;
+}
+
+@media only screen and (max-width: 700px) {
+  .linkNav {
+    margin-right: 10px;
+  }
+  .cart {
+    margin-left: 20px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .linkTexts {
+    display: none;
+  }
+  .menuDiv {
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .header__left {
+    margin-left: 20px;
+  }
+  .header__right {
+    margin-right: 20px;
+  }
+}

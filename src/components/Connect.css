@@ -1,0 +1,83 @@
+.connect {
+  height: 40vh;
+  width: 90%;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.connect > h1 {
+  font-size: 3em;
+  margin-bottom: 30px;
+}
+
+.connect > .button {
+  height: 40px;
+  width: 150px;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: bold;
+  border: 1px solid #1c1f22;
+  cursor: pointer;
+}
+
+.connect > .button:hover {
+  color: #ffffff;
+  background-color: #1c1f22;
+}
+
+@media only screen and (height: 1366px) {
+  .connect {
+    height: 20vh;
+  }
+}
+
+@media only screen and (height: 1024px) {
+  .connect {
+    height: 30vh;
+  }
+}
+
+@media only screen and (height: 960px) {
+  .connect {
+    height: 30vh;
+  }
+}
+
+@media only screen and (max-width: 960px) {
+  .connect > h1 {
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .connect {
+    height: 25vh;
+  }
+  .connect > h1 {
+    font-size: 25px;
+    text-align: center;
+  }
+  .connect > .button {
+    width: 140px;
+    margin-top: 10px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .connect > h1 {
+    font-size: 18px;
+    text-align: center;
+  }
+  .connect > .button {
+    width: 130px;
+    font-size: 12px;
+  }
+}

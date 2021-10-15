@@ -1,0 +1,21 @@
+.shop {
+  background-color: #faf9f8;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  scroll-behavior: smooth;
+}
+
+.shop > .titleOfProducts {
+  margin-top: 90px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+@media only screen and (max-width: 500px) {
+  .shop > .titleOfProducts {
+    text-align: center;
+    font-size: 28px;
+  }
+}

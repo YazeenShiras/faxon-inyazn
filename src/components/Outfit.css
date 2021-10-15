@@ -1,0 +1,183 @@
+.outfit {
+  height: 85vh;
+  width: 90%;
+  margin-bottom: 30px;
+}
+
+.title__outfit {
+  height: 25%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title__outfit > .button {
+  width: 90px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  border: 1px solid #1c1f22;
+  text-decoration: none;
+  color: #1c1f22;
+}
+
+.title__outfit > .button:hover {
+  color: #ffffff;
+  background-color: #1c1f22;
+}
+
+.title__outfit > h1 {
+  letter-spacing: 1px;
+}
+
+.cards__outfit {
+  height: 75%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  overflow-y: scroll;
+}
+
+.cards__outfit::-webkit-scrollbar {
+  display: none;
+}
+
+.cards__outfit > .card {
+  height: 100%;
+  min-width: 300px;
+  max-width: 300px;
+  margin-right: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.cards__outfit > .card > .text {
+  width: 85%;
+  padding: 20px 0px;
+  background-color: #f3f3f3;
+  margin-bottom: 45px;
+}
+
+.cards__outfit > .card > .text > h3,
+h5 {
+  font-weight: bolder;
+  margin-left: 10px;
+  margin-bottom: 5px;
+}
+
+.cards__outfit > .card > .text > .link {
+  color: #1c1f22;
+  text-decoration: none;
+  margin-top: 10px;
+  margin-left: 10px;
+  font-weight: 900;
+  font-size: 13px;
+}
+
+.arrowRight {
+  margin-left: 5px;
+}
+
+@media only screen and (height: 1366px) {
+  .outfit {
+    height: 50vh;
+    margin-bottom: 0;
+  }
+}
+
+@media only screen and (height: 1280px) {
+  .cards__outfit > .card {
+    min-width: 500px;
+    max-width: 500px;
+  }
+}
+
+@media only screen and (height: 1024px) {
+  .outfit {
+    height: 60vh;
+    margin-bottom: 0px;
+  }
+}
+
+@media only screen and (height: 960px) {
+  .outfit {
+    height: 60vh;
+    margin-bottom: 0px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .outfit {
+    height: 80vh;
+    margin-bottom: 40px;
+  }
+  .title__outfit {
+    height: 20%;
+  }
+  .title__outfit > h1 {
+    letter-spacing: 0px;
+    font-size: 22px;
+  }
+  .title__outfit > .button {
+    width: 90px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #1c1f22;
+    cursor: pointer;
+  }
+  .cards__outfit {
+    height: 80%;
+  }
+  .cards__outfit > .card {
+    height: 100%;
+    min-width: 340px;
+    max-width: 340px;
+    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  .cards__outfit > .card > .text {
+    width: 90%;
+    margin-bottom: 40px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .title__outfit > h1 {
+    font-size: 18px;
+  }
+  .cards__outfit > .card {
+    height: 100%;
+    min-width: 280px;
+    max-width: 280px;
+    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  .cards__outfit > .card > .text {
+    width: 85%;
+    padding: 10px 0px;
+    background-color: #f3f3f3;
+    margin-bottom: 30px;
+  }
+  .cards__outfit > .card > .text > h3 {
+    font-size: 16px;
+  }
+  .cards__outfit > .card > .text > h5 {
+    font-size: 12px;
+    margin-right: 20px;
+  }
+  .cards__outfit > .card > .text > .link {
+    font-size: 10px;
+  }
+}
