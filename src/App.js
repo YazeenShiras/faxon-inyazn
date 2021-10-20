@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
 import Home from "./pages/home/Home";
 import Cart from "./pages//cart/Cart";
+import SearchResult from "./pages/search/SearchResult";
 import MensCatalog from "./pages/mensCatalog/MensCatalog";
 import SpecificItem from "./pages/specificItem/SpecificItem";
 import WomenCatalog from "./pages/womensCatalog/WomenCatalog";
@@ -14,6 +15,7 @@ function App() {
       <div className="app">
         <Switch>
           <Route path="/" exact component={Home} />
+          <Route path="/search" component={SearchResult} />
           <Route path="/shopping-cart" component={Cart} />
           <Route path="/catalog/mens-catalog" exact component={MensCatalog} />
           <Route

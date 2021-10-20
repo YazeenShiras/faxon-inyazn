@@ -3,6 +3,7 @@ import { OrderContext } from "../util/context/OrderConatext";
 import "../pages/specificItem/SpecificItem.css";
 import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { NotificationContext } from "../util/context/NotificationContext";
 
 const CartButtons = ({
   code,
@@ -16,6 +17,8 @@ const CartButtons = ({
   // eslint-disable-next-line
   const [orders, setOrders] = useContext(OrderContext);
   const [value, setValue] = useState(1);
+  // eslint-disable-next-line
+  const [isNotified, setisNotified] = useContext(NotificationContext);
 
   const addtoCartButton = () => {
     setOrders((prevOrders) => [
@@ -31,6 +34,7 @@ const CartButtons = ({
         quantity: value,
       },
     ]);
+    setisNotified(true);
   };
 
   const decreseValue = () => {

@@ -2,13 +2,14 @@ import React, { useEffect, useContext, useMemo, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashAlt } from "@fortawesome/free-regular-svg-icons";
 import { Link } from "react-router-dom";
+import GooglePayButton from "@google-pay/button-react";
+import { Notification } from "react-rainbow-components";
 import { OrderContext } from "../../util/context/OrderConatext";
 import { CartContext } from "../../util/context/CartContext";
 import Select from "react-select";
 import countryList from "react-select-country-list";
 import Header from "../../components/Header";
 import "./Cart.css";
-import GooglePayButton from "@google-pay/button-react";
 
 const Cart = () => {
   const [orders, setOrders] = useContext(OrderContext);
@@ -48,10 +49,41 @@ const Cart = () => {
     setCountry(country);
   };
 
+  const deliverbuttonClick = () => {
+    document.getElementById("deliverButton").innerHTML = "Saved";
+  };
+
+  const deliverCancelButtonClick = () => {
+    document.getElementById("deliverCancelButton").innerHTML = " Cancelled";
+  };
+
   return (
     <div className="cartDetailsConatiner">
       <Header />
-      <div className="orderDetailsContiner">
+      <div
+        id="notificationBox"
+        style={{
+          zIndex: "10000",
+          position: "fixed",
+          right: "10px",
+          bottom: "10px",
+          display: "none",
+        }}
+      >
+        <Notification
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            backgroundColor: "#faf9f8",
+            borderColor: "#f0f0f0",
+            boxShadow: "0 5px 10px rgb(0, 0, 0, 0.1)",
+          }}
+          title="Removed from Cart"
+          hideCloseButton="true"
+        />
+      </div>
+      <div className="orderDetailsContiner" style={{ zIndex: "1px" }}>
         <div className="orderDetails" id="orderdetails">
           <div className="orderDetails__orders">
             <div className="titleOrder">
@@ -70,6 +102,14 @@ const Cart = () => {
                           setOrders(
                             orders.filter((value) => value.code !== order.code)
                           );
+                          document.getElementById(
+                            "notificationBox"
+                          ).style.display = "block";
+                          setTimeout(() => {
+                            document.getElementById(
+                              "notificationBox"
+                            ).style.display = "none";
+                          }, 3000);
                         }}
                         className="trashIcon"
                         icon={faTrashAlt}
@@ -173,10 +213,22 @@ const Cart = () => {
               </div>
               <div className="section buttonSection">
                 <div className="left subSection">
-                  <div className="buttonDeliver">Delever Here</div>
+                  <div
+                    onClick={deliverbuttonClick}
+                    id="deliverButton"
+                    className="buttonDeliver"
+                  >
+                    Delever Here
+                  </div>
                 </div>
                 <div className="right subSection">
-                  <div className="buttonCancel">Cancel</div>
+                  <div
+                    id="deliverCancelButton"
+                    className="buttonCancel"
+                    onClick={deliverCancelButtonClick}
+                  >
+                    Cancel
+                  </div>
                 </div>
               </div>
             </form>

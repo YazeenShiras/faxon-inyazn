@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
-import "./SpecificItem.css";
+import { Notification } from "react-rainbow-components";
 import Header from "../../components/Header";
 import { trendingsMen } from "../../util/data/TrendingMen";
 import { trendingWomen } from "../../util/data/TrendingWomen";
@@ -10,8 +10,12 @@ import salesData from "../../util/data/newCollections";
 import accessoriesMen from "../../util/data/accessoriesMen";
 import accessoriesWomen from "../../util/data/accessoriesWomen";
 import CartButtons from "../../components/CartButtons";
+import "./SpecificItem.css";
+import { NotificationContext } from "../../util/context/NotificationContext";
 
 const SpecificItem = ({ match }) => {
+  const [isNotified, setisNotified] = useContext(NotificationContext);
+
   var allData = trendingsMen.concat(
     mensDatas,
     womensDatas,
@@ -50,16 +54,36 @@ const SpecificItem = ({ match }) => {
     }
   }
 
-  const position = similarItems.findIndex((item, index) => {
+  let newSimilarItems = [...new Set(similarItems)];
+  console.log(newSimilarItems);
+
+  const position = newSimilarItems.findIndex((item, index) => {
     return imageUrl === item.image.src;
   });
 
-  similarItems.splice(position, 1);
+  newSimilarItems.splice(position, 1);
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  }, [index]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    // eslint-disable-next-line
-  }, []);
+    if (isNotified === true) {
+      document.getElementById("notificationBox").style.display = "block";
+      setTimeout(() => {
+        document.getElementById("notificationBox").style.display = "none";
+        setisNotified(false);
+      }, 3000);
+    } else {
+      document.getElementById("notificationBox").style.display = "none";
+    }
+  }, [isNotified, setisNotified]);
+
   return (
     <div className="specificItem">
       <Header />
@@ -101,6 +125,28 @@ const SpecificItem = ({ match }) => {
                 imageAlt={allData[index].image[0].alt}
                 imageAlt2={allData[index].image[0].dataAltText}
               />
+              <div
+                id="notificationBox"
+                style={{
+                  zIndex: "10000",
+                  position: "fixed",
+                  right: "10px",
+                  bottom: "10px",
+                }}
+              >
+                <Notification
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    backgroundColor: "#faf9f8",
+                    borderColor: "#f0f0f0",
+                    boxShadow: "0 5px 10px rgb(0, 0, 0, 0.1)",
+                  }}
+                  title={allData[index].title + "  Added to Cart"}
+                  hideCloseButton="true"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -109,11 +155,11 @@ const SpecificItem = ({ match }) => {
             <div className="title__similarProduct">
               <h1>Similar Products </h1>
               <span className="count__title__similarProduct">
-                {similarItems.length}
+                {newSimilarItems.length}
               </span>
             </div>
             <div className="product__container__similarProduct">
-              {similarItems.map((similar) => {
+              {newSimilarItems.map((similar) => {
                 return (
                   <div className="similarProduct__Card" key={similar.id}>
                     <div className="leftSimilar">

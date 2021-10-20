@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import {
   faBars,
+  faSearch,
   faShoppingCart,
   faTimes,
 } from "@fortawesome/free-solid-svg-icons";
@@ -24,6 +25,7 @@ const Header = () => {
     document.getElementById("menu").style.display = "none";
     document.getElementById("menuItems").style.display = "block";
     document.getElementById("shoppingCart").style.display = "none";
+    document.getElementById("searchBoxContainer").style.display = "none";
   };
 
   const changeToDefault = () => {
@@ -32,6 +34,7 @@ const Header = () => {
     document.getElementById("menu").style.display = "block";
     document.getElementById("menuItems").style.display = "none";
     document.getElementById("shoppingCart").style.display = "block";
+    document.getElementById("searchBoxContainer").style.display = "block";
   };
 
   return (
@@ -43,6 +46,21 @@ const Header = () => {
           </Link>
         </div>
         <div className="header__right">
+          <div className="searchBoxContainer" id="searchBoxContainer">
+            <Link to="/search" className="searchBox">
+              <input
+                type="text"
+                id="searchInput"
+                placeholder="Search"
+                autoComplete="off"
+              />
+              <FontAwesomeIcon
+                id="searchIcon"
+                className="searchIcon"
+                icon={faSearch}
+              />
+            </Link>
+          </div>
           <div className="linkTexts">
             <nav>
               <ul>
